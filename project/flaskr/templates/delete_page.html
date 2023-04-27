@@ -1,0 +1,12 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+    <h1>Delete Page</h1>
+    <p>Are you sure you want to delete this page?</p>
+    <p>Page Name: {{ page_name }}</p>
+    <form method="POST" action="{{ url_for('delete_page', page_name=page_name) }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">Delete Page</button>
+        <a href="{{ url_for('view_page', page_path=page_name.replace(' ', '-')) }}" class="btn btn-primary">Cancel</a>
+    </form>
+{% endblock %}

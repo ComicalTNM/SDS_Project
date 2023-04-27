@@ -1,0 +1,4 @@
+TODO(Checkpoint Requirement 1 of 3): Add team member names and emails.
+Cambrell Etheridge <camcollege432@techexchange.in>
+Ángel González Torres <angelgonzalez@techexchange.in>
+Samuel Lopez <sam@techexchange.in>

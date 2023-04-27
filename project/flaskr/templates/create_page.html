@@ -1,0 +1,16 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<h1>Create a New Page</h1>
+
+<form method="post" action="{{ url_for('create_page') }}">
+    <label for="page_name">Page Name:</label><br>
+    <input type="text" id="page_name" name="page_name" required><br><br>
+
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" required></textarea><br><br>
+
+    <input type="submit" value="Create Page">
+</form>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "nav_bar.html" %}
+<html>
+    <head>
+    </head>
+
+    <body>
+        {% block content %}
+        <h1> Sign Up </h1> 
+
+        <!-- The `method` specifies how is the data going to be sent -->
+        <!-- The `action` determines where is this data going to be sent -->
+        <!-- When submitting, we're sent to the path in `action` -->
+        <!-- Also, if we use the # for `action`, it means we stay in the same page -->
+
+        <!-- Sent `action` to main for now, should be changed later -->
+        <form method = "post" action = "#"> 
+            <input type="text" name="username" placeholder="username"/><br/>
+            <input type="text" name="password" placeholder="password"/><br/>
+
+            <input type="submit" value="Submit"/>
+        </form>
+        {% endblock %}
+    </body>
+</html>

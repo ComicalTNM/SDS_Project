@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+        
+        <div class="navbar-text">
+            <!-- This will be the navbar for Logged In Users, includes logout and favorites -->
+            {% if current_user.is_authenticated %}
+            <ul class="nav-list">
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('home') }}">Home</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('page_index') }}">Pages</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('about') }}">About</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('display_favs') }}">Favorites</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;">|</li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;">  {{current_user.get_id()}} </li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;">|</li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('create_page') }}">Create</a></li>
+                <td style="margin-left: 10px; margin-right: 10px;"><a class="page-link" href="{{ url_for('upload_file') }}">Upload</a></td> <!-- THIS UPLOAD PART NEEDS TO BE ONLY WHEN USER IS SIGNED IN, IN COMBINATION WITH LOGOUT -->
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+            {% else %}
+            <!-- Navbar for users that haven't logged in or signed up, includes login and signup.  -->
+            <ul class="nav-list">
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('home') }}">Home</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('page_index') }}">Pages</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('about') }}">About</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;">|</li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('login') }}">Log In</a></li>
+                <li style="display: inline-block; margin-left: 5px; margin-right: 5px;"><a class="page-link" href="{{ url_for('signup') }}">Sign Up</a></li>
+            </ul>
+            {% endif %}
+
+
+
+
+        </div>
+
+        <!-- This block will be the add or remove favorites button -->
+        {% block favorites_button %}
+        {% endblock %}
+
+        <!-- This block will be the general text of the page -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- This block will be for the text rendered in the image (if it has one) -->
+        {% block image %}
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,72 @@
+{% extends 'nav_bar.html' %}
+
+{% block favorites_button %}
+    {% if current_user.is_authenticated %}
+        {% if is_page_in_favorites %}
+            <div class="container">
+                <form method="POST" action="{{url_for('remove_from_favorites', page_path = page_path)}}">
+                    <input type="submit" name = "remove_from_favorites" value="Remove from Favorites" id="remove_from_favorites" />
+                </form>
+            </div>
+        {% else %}
+            <div class="container">
+                <form method="POST" action="{{url_for('add_to_favorites', page_path = page_path)}}">
+                    <input type="submit" name = "add_to_favorites" value="Add to Favorites" id="add_to_favorites" />
+                </form>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {{ page_name }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title"> {{ page_name }}</h1>
+    <hr>
+    <span style="white-space: pre-line;" class="page-text">
+        {{text}}
+    </span>
+{% endblock %}
+
+
+
+{% block image %}
+
+<!-- If we DO have an image -->
+{% if image_passed %}
+
+    <div class="image">
+
+        <img class = "image__img" src={{image}}>
+
+        <div class = "image__overlay">
+
+            <div class="image__title">
+                {{page_name}}
+            </div>
+
+            <p class="image_desc">
+                {{image_text}}
+
+            </p>
+
+        </div>
+
+    </div>
+
+{% endif %}
+<!-- If we do NOT then nothing will be rendered in it's part. -->
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

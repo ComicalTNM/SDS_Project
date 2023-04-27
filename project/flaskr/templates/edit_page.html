@@ -1,0 +1,16 @@
+{% extends 'nav_bar.html' %}
+
+{% block content %}
+  <h1>Edit Page</h1>
+  <form method="POST" action="{{ url_for('update_page', page_path=page_name) }}">
+    <div class="form-group">
+      <label for="page_name">Page Name:</label>
+      <input type="text" class="form-control" id="page_name" name="page_name" value="{{ page_name }}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="page_content">Page Content:</label>
+      <textarea class="form-control" id="page_content" name="page_content" rows="10">{{ page_content }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Page</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "nav_bar.html" %}
+
+
+{% block content %}
+<body class="page-text">     
+    <p>Welcome to team's SPONGEBOB's Project</p>
+
+    {% if current_user.is_authenticated %}
+        <p> Hi,  <strong>{{current_user.get_id()}}!</strong> </p>
+    {% endif %}
+
+{% endblock %}

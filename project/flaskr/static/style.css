@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* This helps all the image keep a smaller size */
+.image{
+	position: relative;
+	width: 20%;
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 50px;
+}
+
+/* This is for the actual image that is being passed through the upload */
+.image__img{
+	display: flex;
+	width: 100%;
+
+}
+
+/* Title text of the image, this will be the Page Name */
+.image__title{
+	font-size: 2em;
+	font-weight: bold;
+}
+
+
+/*
+This is what actually makes the magic happen alongside
+some other stuff below of the format `.image__overlay >
+ */
+.image__overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	color: white;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	
+	display: flex;
+	
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+/* 
+This is what causes the vertical transition
+we see with the black opaque screen over the image
+ */
+.image__overlay > *{
+	transform: translateY(20px);
+	transition: transform 0.25s;
+}
+
+.image__overlay:hover > *{
+	transform: translateY(0);
+}
+
+.image__overlay:hover{
+	opacity: 1;
+}
+
+
+/*
+These tags below are for applying the stylesheet
+all over our wiki, changing fonts and sizes.
+ */
+.page-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+
+}
+
+.page-text{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-text{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.index{
+    margin-bottom: 2px;
+    list-style-type: square;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 
+^
+|
+The tag above is for the styling of the bullets and text space in the index
+
+These tags below are for the hyperlinks which are used in the index
+|
+v
+ */
+.page-link{
+    color: darkgray;
+    text-decoration: none;
+}
+
+.page-link:visited{
+    color: darkgray;
+}
+
+.page-link:hover{
+    color: red;
+}
+
+.label-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    margin-right: 2px;
+}

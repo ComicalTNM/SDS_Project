@@ -1,0 +1,21 @@
+{% extends "nav_bar.html" %}
+
+{% block page_name %}
+Favorites:
+{% endblock %}
+
+{% block content %}
+{% if pages %}
+<ul>
+    {% for page in pages %}
+        <li class="index"><a class="page-link" href="{{ url_for("page", page_path = page) }}">{{ page.replace('-', ' ')}}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}git add.
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Index</title>
+</head>
+<body>
+    <h1 class="page-title">Index</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    {% if pages %}
+    <ul>
+    {% for page in pages %}
+        <li class="index"><a class="page-link" href="{{ url_for('page', page_path=page) }}">{{ page }}</a></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
+
+{% endblock %}
+
+
+
+
